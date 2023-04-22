@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adios Bash</title>
+    <!-- <link rel="stylesheet" href="animatedbg.css"> -->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+      .adios-bash-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.adios-bash-text {
+  position: absolute;
+ margin-left: 5px;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 8rem;
+  color: navy;
+  z-index: 1;
+}
+
+.adios-bash-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(50%);
+  z-index: 0;
+  animation: adios-bash-anim 10s linear infinite;
+}
+
+@keyframes adios-bash-anim {
+  0% {
+    filter: brightness(100%);
+    transform: scale(1);
+  }
+  50% {
+    filter: brightness(70%);
+    transform: scale(1.1);
+  }
+  100% {
+    filter: brightness(100%);
+    transform: scale(1);
+  }
+}
+@media (width <= 740px){
+    .adios-bash-container{
+    margin: -100px 0 30px 0;
+                width: 100%;
+                max-width: 1000px;
+  }
+  .adios-bash-text{
+    margin-top: 20%;
+    font-size: 700%;
+  }
+}
+
+.animated-bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  
+  .animated-bg::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    z-index: -1;
+    background-color: #000;
+    animation: change-background 10s linear infinite;
+  }
+  
+  @keyframes change-background {
+    0% {
+      background-color: #000;
+    }
+    25% {
+      background-color: #ff8c00;
+    }
+    50% {
+      background-color: #8f00ff;
+    }
+    75% {
+      background-color: #00ff00;
+    }
+    100% {
+      background-color: #000;
+    }
+  }
+  
+  
+  .container{
+    width: 1000px;
+    position: relative;
+    display: flex;
+    left: 10vw;
+    justify-content: space-between;
+   
+}
+
+.container .card{
+    position: relative;
+    cursor: pointer;
+}
+
+.container .card .face{
+  width: 300px;
+  height: 200px;
+  transition: 0.5s;
+}
+
+.container .card .face.face1{
+  position: relative;
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  transform: translateY(100px);
+}
+
+.container .card:hover .face.face1{
+  background: #ff0057;
+  transform: translateY(0);
+}
+
+.container .card .face.face1 .content{
+    color: black;
+  opacity: 0.2;
+  transition: 0.5s;
+}
+
+.container .card:hover .face.face1 .content{
+  opacity: 1;
+}
+.container .card .face.face1 .content img{
+  max-width: 180px;
+}
+
+.container .card .face.face1 .content h3{
+  margin: 10px 0 0;
+  padding: 0;
+  color: #0a0a0a;
+  text-align: center;
+  font-size: 2em;
+}
+
+.container .card .face.face2{
+  position: relative;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  transform: translateY(-100px);
+}
+.container .card:hover .face.face2{
+  transform: translateY(0);
+}
+
+.container .card .face.face2 .content p{
+  margin: 0;
+  padding: 0;
+}
+
+.container .card .face.face2 .content a{
+  margin: 15px 0 0;
+  display:  inline-block;
+  text-decoration: none;
+  font-weight: 900;
+  color: #333;
+  padding: 5px;
+  border: 1px solid #333;
+}
+
+.container .card .face.face2 .content a:hover{
+  background: #333;
+  color: #fff;
+}
+@media (width <= 740px){
+  .container{
+    flex-direction: column;
+    text-align: center;
+    /* margin: 0 40px; */
+    padding-left: 0px;
+    width: 100%;
+  }
+}
+.memories{
+    text-align: center;
+    font-size: 4vh;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+@media (width <= 740px){
+    .memories{
+    text-align: center;
+    font-size: 4vh;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+}
+form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+label, input, textarea {
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+input, textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+#invitation{
+   
+font-size: 1.2rem;
+  line-height: 1.5;
+  padding: 1rem;
+  border: 2px solid #150a0a;
+  border-radius: 5px;
+  margin-top: 1rem;
+  margin-left: 20rem;
+  width: 50%;
+}
+@media (width <= 740px){
+    #invitation{
+       
+    margin: 0 40px;
+    padding-left: 50px;
+    width: 50%;
+    }
+}
+.mySlides{
+    /* margin: 10vh 30vw 10vh 10px; */
+    /* align-items: center; */
+    margin-left: 5vw;   
+}
+@media (width <= 740px){
+    .mySlides{
+    height: 40%;
+    width: 100%;
+    /* align-items: center; */
+    margin-left: 5vw; 
+}
+}
+
+/* Footer CSS */
+p{
+    color: whitesmoke;
+}
+     .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: black;
+      padding: 40px 80px;
+    }
+    .footer .copy {
+      color: #fff;
+    }
+  
+    .bottom-links {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 40px 0;
+    }
+
+    .bottom-links .links {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .bottom-links .links span {
+      font-size: 20px;
+      color: #fff;
+      text-transform: uppercase;
+      margin: 10px 0;
+    }
+
+    .bottom-links .links a {
+      text-decoration: none;
+      color: #a1a1a1;
+      padding: 10px,20px;
+}
+@media (width <= 740px){
+    p{
+    color: whitesmoke;
+}
+     .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: black;
+      padding: 40px 80px;
+    }
+    .footer .copy {
+      color: #fff;
+    }
+  
+    .bottom-links {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 40px 0;
+    }
+
+    .bottom-links .links {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .bottom-links .links span {
+      font-size: 20px;
+      color: #fff;
+      text-transform: uppercase;
+      margin: 10px 0;
+    }
+
+    .bottom-links .links a {
+      text-decoration: none;
+      color: #a1a1a1;
+      padding: 10px,20px;
+}
+}
+    </style>
+</head>
+<body>
+  <div class="adios-bash-container">
+    <h1 class="adios-bash-text">Adios Bash!</h1>
+    <img class="adios-bash-img" src="https://images.unsplash.com/photo-1607013407627-6ee814329547?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=664&q=80" alt="Adios Bash">
+  </div>
+  <br><br><br>
+    <div class="animated-bg"></div>
+    <script src="https://cdn.logwork.com/widget/countdown.js"></script>
+<a href="https://logwork.com/countdown-yt8i" class="countdown-timer" data-timezone="Asia/Kolkata" data-date="2023-04-19 11:00">Countdown is on ! Get ready to celebrate in style</a>
+<br><br><br><br><br>
+<div class="memories">Click the icon to Know more</div>     
+&nbsp;<div class="container">
+        <br>
+        <br>
+        <div class="card" >
+            <div class="face face1">
+                <div class="content">
+                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80">
+                    <h3>Music & Dance</h3>
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    Join us for a day of dancing and fun at our upcoming event! 
+                        so put on your dancing shoes and get ready to boogie!
+                        
+                      <!--<a href="#">Read More</a> -->
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="card">
+          <div class="face face1">
+              <div class="content">
+                  <img src="https://plus.unsplash.com/premium_photo-1664126702530-7f961841de38?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80">
+                  <h3>Bon Appetit</h3>
+              </div> 
+          </div>
+          <div class="face face2">
+              <div class="content">
+                We are organizing delicious snacks for you.
+
+                     <!-- <a href="#">Read more</a> -->
+              </div>
+          </div>
+      </div>
+      <br> 
+      <div class="card">
+          <div class="face face1">
+              <div class="content">
+                  <img src="https://images.unsplash.com/photo-1514863775978-c611132e6691?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=863&q=80">
+                  <h3>Surprises & Fun</h3>
+              </div>
+          </div>
+          <div class="face face2">
+            <div class="content">
+                Get ready for a day of excitement and fun with our upcoming event! We're thrilled to announce that we have some surprising games in store for you, making it an experience you won't forget.
+
+                  <!--  <a href="#">Read More</a> -->
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<br>
+<div class="memories"><h1>Memories</h1></div>
+<br>
+    <img class="mySlides" src="https://pbs.twimg.com/media/Ftz8trxacAANVFl?format=jpg&name=small" style="width: 90%; height: 60%;" align="center">
+
+    <img class="mySlides" src="https://pbs.twimg.com/media/Ftz8pSoacAEL2Km?format=jpg&name=small" style="width: 90%; height: 60%;" align="center">
+
+    <img class="mySlides" src="https://pbs.twimg.com/media/Ftz8jQ6aMAQYJ0Y?format=jpg&name=small" style="width: 90%; height: 60%;" align="center">
+
+    <img class="mySlides" src="https://pbs.twimg.com/media/Ftz8pRtaQAcchkL?format=jpg&name=small" style="width: 90%; height: 60%;" align="center">
+
+    <img class="mySlides" src="https://pbs.twimg.com/media/Ftz8jQ4aAAM73IQ?format=jpg&name=small" style="width: 90%; height: 60%;" align="center">
+
+    <img class="mySlides" src="https://pbs.twimg.com/media/Ftz8jRFaYAAHm4A?format=jpg&name=small" style="width: 90%; height: 60%;" align="center">
+
+    <img class="mySlides" src="https://pbs.twimg.com/media/Ftz8trRakAEMU_u?format=jpg&name=small" style="width: 90%; height: 60%;" align="center">
+
+    <img class="mySlides" src="https://pbs.twimg.com/media/Ftz8pSWaAAAzAs-?format=jpg&name=small" style="width: 90%; height: 60%;" align="center">
+
+    <img class="mySlides" src="https://pbs.twimg.com/media/Ftz8jQ6akAA8Xjd?format=jpg&name=small" style="width: 90%; height: 60%;" align="center">
+
+    <img class="mySlides" src="https://pbs.twimg.com/media/Ftq_PG7aIAALVzu?format=jpg&name=large" style="width: 90%; height: 60%;" align="center">
+
+    <img class="mySlides" src="https://pbs.twimg.com/media/Ftq_PG7acAItfb5?format=jpg&name=large" style="width: 90%; height: 60%;" align="center">
+
+    <img class="mySlides" src="https://pbs.twimg.com/media/Ftq_PHCaUAgmK6X?format=jpg&name=large" style="width: 90%; height: 60%;" align="center">
+
+    <img class="mySlides" src="https://pbs.twimg.com/media/Ftq_ilFaEAIF5LS?format=jpg&name=large" style="width: 90%; height: 60%;" align="center">
+
+    <img class="mySlides" src="https://pbs.twimg.com/media/Ftq_il2aIAIFAUW?format=jpg&name=large" style="width: 90%; height: 60%;" align="center">
+
+    <img class="mySlides" src="https://pbs.twimg.com/media/Ftq_im6akAAsl4A?format=jpg&name=large" style="width: 90%; height: 60%;" align="center">
+
+    <img class="mySlides" src="https://pbs.twimg.com/media/Ft0BoOVacAEhXcL?format=jpg&name=900x900" style="width: 90%; height: 60%;" align="center">
+
+    <img class="mySlides" src="https://pbs.twimg.com/media/Ftq_PG_agAEL-oQ?format=jpg&name=large" style="width: 90%; height: 60%;" align="center">
+
+    <img class="mySlides" src="https://pbs.twimg.com/media/Ftq_tyGagAcKjbD?format=jpg&name=large" style="width: 90%; height: 60%;" align="center">
+
+    <img class="mySlides" src="https://pbs.twimg.com/media/Ftq_ty1aYAAJJRp?format=jpg&name=large" style="width: 90%; height: 60%;" align="center">
+
+    <img class="mySlides" src="https://pbs.twimg.com/media/Ftq_tzNaYAA2lh2?format=jpg&name=large" style="width: 90%; height: 60%;" align="center">
+
+    <img class="mySlides" src="https://pbs.twimg.com/media/Ftq_tzwagAEpJKX?format=jpg&name=large" style="width: 90%; height: 60%;" align="center">   
+    </div>
+    <br>
+    <hr>
+    <br>
+    <br>
+<form>
+    <h3>For Details</h3>
+    <label for="name">Enter your Name:</label>
+    <input type="text" id="name" name="name" required>
+  
+    <!-- <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+   -->
+    <button type="submit">Submit</button>
+  </form>
+  <br><br> 
+
+  <div id="invitation"></div>
+  <br><br>
+
+<footer class="footer">
+    <div class="copy">&copy; <b>Designed by :</b> <br> <br><a href="https://www.linkedin.com/in/rahul-profile/"> <b>Rahul Mohanty</b> </a><br><br> 
+        <a href="https://www.linkedin.com/in/pritam-kumar-patel-16aa68248/"><b>Pritam Kumar Patel</b> </a><br><br> 
+       <a href="https://www.linkedin.com/in/a-srinibash-achary-2a947a238/"><b> A Srinibash Achary</b></a></div>
+    <!-- <div class="copy"> <b>Pritam Kumar Patel</b></div> -->
+    <!-- <div class="copy">  <br> <br><b>A Srinibash Aacharya</b></div> -->
+    <div class="bottom-links">
+      <div class="links">
+        <span>Contact</span>
+        <p>Sudeep : <a href="tel: +91-934-886-0733" target="_main">+91-934-886-0733<i class="fab fa-phone"></i></a> </p>
+        <p>Partha : <a href="tel: +91-637-225-7834" target="_main">+91-637-225-7834"<i class="fab fa-phone"></i></a> </p>
+        <p>Alok : <a href="tel: +91-773-588-8283" target="_main">+91-773-588-8283<i class="fab fa-phone"></i></a></p>
+        <p>Vishnu : <a href="tel: +91-859-609-7739" target="_main">+91-859-609-7739<i class="fab fa-phone"></i></a></p>
+        <p>Sandeep : <a href="tel: +91-845-683-4944" target="_main">+91-845-683-4944<i class="fab fa-phone"></i></a></p>
+      </div>
+      </div> 
+    </div>
+</footer>
+  
+      <script>
+        // Set the date for the countdown (replace with your own date)
+  const countdownDate = new Date("April 30, 2023 23:59:59").getTime();
+  
+  // Update the countdown every second
+  const countdownInterval = setInterval(() => {
+    // Get the current date and time
+    const now = new Date().getTime();
+  
+    // Calculate the time difference between now and the countdown date
+    const timeDifference = countdownDate - now;
+  
+    // Calculate days, hours, minutes, and seconds
+    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+  
+    // Update the countdown numbers in the DOM
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
+  
+    // Add the countdown animation to the numbers
+    document.getElementById("days").style.animationDuration = `${days < 10 ? 1 : 2}s`;
+    document.getElementById("hours").style.animationDuration = `${hours < 10 ? 1 : 2}s`;
+    document.getElementById("minutes").style.animationDuration = `${minutes < 10 ? 1 : 2}s`;
+    document.getElementById("seconds").style.animationDuration = `${seconds < 10 ? 1 : 2}s`;
+    
+    // Check if the countdown has ended
+    if (timeDifference < 0) {
+      // Stop the countdown
+      clearInterval(countdownInterval);
+      // Update the countdown numbers to show 0
+      document.getElementById("days").textContent = 0;
+      document.getElementById("hours").textContent = 0;
+      document.getElementById("minutes").textContent = 0;
+      document.getElementById("seconds").textContent = 0;
+    }
+  }, 1000);
+  const form = document.querySelector('form');
+const invitation = document.querySelector('#invitation');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  
+  const name = form.elements['name'].value;
+  
+
+  const invitationText = `Dear ${name},\n\nAs the end of the academic year approaches, we want to take this opportunity to say farewell to you before embark on a new journey.
+\n\nYou have been an integral part of our university, and we want to celebrate the incredible accomplishments and memories you have made during your time with us. 
+" PLEASE JOIN US WITH A TRADITIONAL DRESSUP ON WEDNESDAY, APR 19 AT 11 AM IN COLLEGE CAMPUS". The day will be filled with fun activities, music, and delicious food, as we celebrate your achievements and honor your contributions to our university. And there will be other exciting surprises planned to make the day even more memorable. Dress to impress and be prepared for an unforgettable day! 
+
+`;
+
+  invitation.textContent = invitationText;
+});
+var slideIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > x.length) {slideIndex = 1}
+  x[slideIndex-1].style.display = "block";
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length} ;
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  x[slideIndex-1].style.display = "block";
+}
+  
+      </script> 
+</body>
+</html>
